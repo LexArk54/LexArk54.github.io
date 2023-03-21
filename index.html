@@ -3,7 +3,7 @@
   </head>
   <body>
     Hello World 2
-    <img src="https://cdn.discordapp.com/attachments/948701606172577852/1011204087750078534/FFXIV.png"/>
+    <img src="https://cdn.discordapp.com/attachments/902970350298615868/1086414654361837598/FR268.png"/>
     <div id="items" style="width: 100%; height: 100%;">
     </div>
   </body>
@@ -13,17 +13,17 @@
     let base64 = params.get('base64');
     let items = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
     let itemsList = document.querySelector("#items");
-    function CreateItem(item) {
+    function CreateItem(itemName) {
         let elem = document.createElement('a');
-        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + item[0];
-        elem.innerHTML = '<img src="' + item[1] + '"/>' + item[0];
+        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemName;
+        elem.innerText = itemName;
         elem.target = '_blank';
         itemsList.appendChild(elem);
         itemsList.appendChild(document.createElement('br'));
     }
     items.forEach(function(item_dye) {
-      if (item_dye[0].length > 0) CreateItem(item_dye[0]);
-      if (item_dye[1].length > 0) CreateItem(item_dye[1]);
+      if (item_dye[0] !== 0) CreateItem(item_dye[0]);
+      if (item_dye[1] !== 0) CreateItem(item_dye[1]);
     });
   </script>
 </html>
