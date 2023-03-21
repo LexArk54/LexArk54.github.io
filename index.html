@@ -25,30 +25,24 @@
   </body>
   <script>
     document.addEventListener('DOMContentLoaded', function(){
-      var width = window.innerWidth
-        || document.documentElement.clientWidth
-        || document.body.clientWidth;
-      var height = window.innerHeight
-        || document.documentElement.clientHeight
-        || document.body.clientHeight;
       let params = new URLSearchParams(window.location.search);
       let id = params.get('id');
       let base64 = params.get('base64');
       let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
       let itemsList = document.querySelector("#items");
       let imgBG = document.querySelector("#imgBG");
-      imgBG.style.width = width;
-      imgBG.style.height = height;
+      imgBG.width = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
       let leftFactor = width / data.size[0];
-      let topFactor = height / data.size[1];
       function CreateItem(itemData) {
           let elem = document.createElement('a');
           elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
           elem.target = '_blank';
           elem.style.left = Math.round(itemData[1] * leftFactor);
-          elem.style.top = Math.round(itemData[2] * topFactor);
+          elem.style.top = Math.round(itemData[2] * leftFactor);
           elem.style.width = Math.round(itemData[3] * leftFactor);
-          elem.style.height = Math.round(itemData[4] * topFactor);
+          elem.style.height = Math.round(itemData[4] * leftFactor);
           itemsList.appendChild(elem);
       }
       data.items.forEach(function(item_dye) {
