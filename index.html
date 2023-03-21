@@ -4,13 +4,24 @@
   <body>
     Hello World 2
     <img src="https://cdn.discordapp.com/attachments/948701606172577852/1011204087750078534/FFXIV.png"/>
-    <iframe id="item-iframe" style="width: 100%; height: 100%">
-    </iframe>
+    <div id="items" style="width: 100%; height: 100%;">
+    </div>
   </body>
   <script>
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
-    let iframe = document.querySelector('#item-iframe');
-    iframe.setAttribute("src", "https://ffxiv.consolegameswiki.com/wiki/" + id);
+    let base64 = params.get('base64');
+    let items = JSON.parse(decodeURIComponent(escape(window.atob(base64)));
+    let itemsList = document.querySelector("#items");
+    function CreateItem(item) {
+        let elem = document.createElement('a');
+        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/Items/' + item[0];
+        elem.innerText = item[0];
+        itemsList.appendChild(elem);
+    }
+    items.each(function(k, item_dye) => {
+      if (item_dye[0] != []) CreateItem(item_dye[0]);
+      if (item_dye[1] != []) CreateItem(item_dye[1]);
+    });
   </script>
 </html>
