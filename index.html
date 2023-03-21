@@ -32,10 +32,10 @@
       let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
       let itemsList = document.querySelector("#items");
       let imgBG = document.querySelector("#imgBG");
-      imgBG.style.width = (window.innerWidth
+      imgBG.width = (window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth) - 36;
-      let leftFactor = width / data.size[0];
+      let leftFactor = imgBG.width / data.size[0];
       function CreateItem(itemData) {
           let elem = document.createElement('a');
           elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
