@@ -11,7 +11,7 @@
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
     let base64 = params.get('base64');
-    let items = JSON.parse(decodeURIComponent(escape(window.atob(base64)));
+    let items = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
     let itemsList = document.querySelector("#items");
     function CreateItem(item) {
         let elem = document.createElement('a');
