@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <img src="https://cdn.discordapp.com/attachments/902970350298615868/1086414654361837598/FR268.png"/>
+    <img id="imgBG" src="https://cdn.discordapp.com/attachments/902970350298615868/1086414654361837598/FR268.png"/>
     <div id="items" style="width: 100%; height: 100%;">
     </div>
   </body>
@@ -24,7 +24,7 @@
     let base64 = params.get('base64');
     let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
     let itemsList = document.querySelector("#items");
-    let imgBG = document.querySelector("img");
+    let imgBG = document.querySelector("#imgBG");
     let leftFactor = imgBG.offsetWidth / data.size[0];
     let topFactor = imgBG.offsetHeight / data.size[1];
     function CreateItem(itemData) {
