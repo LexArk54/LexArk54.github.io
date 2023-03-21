@@ -19,29 +19,29 @@
     </div>
   </body>
   <script>
-    let params = new URLSearchParams(window.location.search);
-    let id = params.get('id');
-    let base64 = params.get('base64');
-    let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
-    let itemsList = document.querySelector("#items");
-    let imgBG = document.querySelector("#imgBG");
-    let leftFactor = imgBG.offsetWidth / data.size[0];
-    let topFactor = imgBG.offsetHeight / data.size[1];
-    function CreateItem(itemData) {
-        let elem = document.createElement('a');
-        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
-        elem.target = '_blank';
-        console.log(Math.round(itemData[1] * leftFactor));
-        elem.style.left = Math.round(itemData[1] * leftFactor);
-        elem.style.top = Math.round(itemData[2] * topFactor);
-        elem.style.width = Math.round(itemData[3] * leftFactor);
-        elem.style.height = Math.round(itemData[4] * topFactor);
-        itemsList.appendChild(elem);
-        console.log(elem.style.left);
-    }
-    data.items.forEach(function(item_dye) {
-      if (item_dye[0].length > 0) CreateItem(item_dye[0]);
-      if (item_dye[1].length > 0) CreateItem(item_dye[1]);
+    document.addEventListener('DOMContentLoaded', function(){
+      let params = new URLSearchParams(window.location.search);
+      let id = params.get('id');
+      let base64 = params.get('base64');
+      let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
+      let itemsList = document.querySelector("#items");
+      let imgBG = document.querySelector("#imgBG");
+      let leftFactor = imgBG.offsetWidth / data.size[0];
+      let topFactor = imgBG.offsetHeight / data.size[1];
+      function CreateItem(itemData) {
+          let elem = document.createElement('a');
+          elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
+          elem.target = '_blank';
+          elem.style.left = Math.round(itemData[1] * leftFactor);
+          elem.style.top = Math.round(itemData[2] * topFactor);
+          elem.style.width = Math.round(itemData[3] * leftFactor);
+          elem.style.height = Math.round(itemData[4] * topFactor);
+          itemsList.appendChild(elem);
+      }
+      data.items.forEach(function(item_dye) {
+        if (item_dye[0].length > 0) CreateItem(item_dye[0]);
+        if (item_dye[1].length > 0) CreateItem(item_dye[1]);
+      });
     });
   </script>
 </html>
