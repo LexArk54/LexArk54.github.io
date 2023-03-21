@@ -1,6 +1,9 @@
 <html>
   <head>
     <style>
+      body {
+        margin: 0;
+      }
       div#items > a {
         position: absolute;
       }
@@ -17,15 +20,18 @@
     let base64 = params.get('base64');
     let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
     let itemsList = document.querySelector("#items");
+    let imgBG = document.querySelector("img");
+    let leftFactor = imgBG.offsetWidth / data.size[0];
+    let topFactor = imgBG.offsetHeight / data.size[1];
     function CreateItem(itemData) {
         let elem = document.createElement('a');
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
         elem.innerText = itemData[0];
         elem.target = '_blank';
-        elem.style.left = itemData[1];
-        elem.style.top = itemData[2];
-        elem.style.width = itemData[3];
-        elem.style.height = itemData[4];
+        elem.style.left = itemData[1] * leftFactor;
+        elem.style.top = itemData[2] * topFactor;
+        elem.style.width = itemData[3] * leftFactor;
+        elem.style.height = itemData[4] * topFactor;
         itemsList.appendChild(elem);
     }
     data.items.forEach(function(item_dye) {
