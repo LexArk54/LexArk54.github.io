@@ -9,7 +9,7 @@
         display: block;
       }
       div#items > a:hover {
-        background: rgba(255, 255, 255, .8);
+        background: rgba(255, 255, 255, .3);
       }
     </style>
   </head>
@@ -27,10 +27,11 @@
     let imgBG = document.querySelector("img");
     let leftFactor = imgBG.offsetWidth / data.size[0];
     let topFactor = imgBG.offsetHeight / data.size[1];
+    leftFactor = data.factor[0];
+    topFactor = data.factor[1];
     function CreateItem(itemData) {
         let elem = document.createElement('a');
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
-        elem.innerText = itemData[0];
         elem.target = '_blank';
         elem.style.left = itemData[1] * leftFactor;
         elem.style.top = itemData[2] * topFactor;
