@@ -31,11 +31,13 @@
         let elem = document.createElement('a');
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
         elem.target = '_blank';
+        console.log(Math.round(itemData[1] * leftFactor));
         elem.style.left = Math.round(itemData[1] * leftFactor);
         elem.style.top = Math.round(itemData[2] * topFactor);
         elem.style.width = Math.round(itemData[3] * leftFactor);
         elem.style.height = Math.round(itemData[4] * topFactor);
         itemsList.appendChild(elem);
+        console.log(elem.style.left);
     }
     data.items.forEach(function(item_dye) {
       if (item_dye[0].length > 0) CreateItem(item_dye[0]);
