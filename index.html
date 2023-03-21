@@ -17,7 +17,9 @@
         let elem = document.createElement('a');
         console.log(item);
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + item[0];
-        elem.innerHTML = '<img src="https://ffxiv.consolegameswiki.com/wiki/File:' + item[0] + '_icon1.png"/>' + item[0];
+        let imgName = item[0].charAt(0) + item[0].substring(1).toLowerCase();
+        imgName = imgName.replace('%27', '')
+        elem.innerHTML = '<img src="https://ffxiv.consolegameswiki.com/wiki/File:' + imgName + '_icon1.png"/>' + item[0];
         elem.target = '_blank';
         itemsList.appendChild(elem);
         itemsList.appendChild(document.createElement('br'));
