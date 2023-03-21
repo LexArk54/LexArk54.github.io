@@ -27,16 +27,14 @@
     let imgBG = document.querySelector("img");
     let leftFactor = imgBG.offsetWidth / data.size[0];
     let topFactor = imgBG.offsetHeight / data.size[1];
-    leftFactor = data.factor[0];
-    topFactor = data.factor[1];
     function CreateItem(itemData) {
         let elem = document.createElement('a');
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
         elem.target = '_blank';
-        elem.style.left = itemData[1] * leftFactor;
-        elem.style.top = itemData[2] * topFactor;
-        elem.style.width = itemData[3] * leftFactor;
-        elem.style.height = itemData[4] * topFactor;
+        elem.style.left = Math.round(itemData[1] * leftFactor);
+        elem.style.top = Math.round(itemData[2] * topFactor);
+        elem.style.width = Math.round(itemData[3] * leftFactor);
+        elem.style.height = Math.round(itemData[4] * topFactor);
         itemsList.appendChild(elem);
     }
     data.items.forEach(function(item_dye) {
