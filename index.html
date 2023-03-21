@@ -18,6 +18,7 @@
         console.log(item);
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + item[0];
         elem.innerText = item[0];
+        elem.target = '_blank';
         itemsList.appendChild(elem);
         itemsList.appendChild(document.createElement('br'));
     }
