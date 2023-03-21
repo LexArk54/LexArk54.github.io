@@ -33,6 +33,9 @@
       let imgBG = document.querySelector("#imgBG");
       let leftFactor = imgBG.offsetWidth / data.size[0];
       let topFactor = imgBG.offsetHeight / data.size[1];
+      console.log(imgBG.offsetWidth);
+      console.log(data.size[0]);
+      console.log(topFactor);
       function CreateItem(itemData) {
           let elem = document.createElement('a');
           elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
