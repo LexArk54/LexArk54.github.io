@@ -15,7 +15,7 @@
     let itemsList = document.querySelector("#items");
     function CreateItem(itemData) {
         let elem = document.createElement('a');
-        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemName;
+        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
         elem.innerText = itemData[0];
         elem.target = '_blank';
         elem.style.left = itemData[1];
