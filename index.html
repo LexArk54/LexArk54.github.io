@@ -16,7 +16,7 @@
     function CreateItem(item) {
         let elem = document.createElement('a');
         console.log(item);
-        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/Items/' + item[0];
+        elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + item[0];
         elem.innerText = item[0];
         itemsList.appendChild(elem);
         itemsList.appendChild(document.createElement('br'));
