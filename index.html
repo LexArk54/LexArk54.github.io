@@ -19,11 +19,10 @@
         elem.innerText = itemName;
         elem.target = '_blank';
         itemsList.appendChild(elem);
-        itemsList.appendChild(document.createElement('br'));
     }
     items.forEach(function(item_dye) {
-      if (item_dye[0] !== 0) CreateItem(item_dye[0]);
-      if (item_dye[1] !== 0) CreateItem(item_dye[1]);
+      if (item_dye[0].length > 0) CreateItem(item_dye[0]);
+      if (item_dye[1].length > 0) CreateItem(item_dye[1]);
     });
   </script>
 </html>
