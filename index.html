@@ -3,13 +3,13 @@
   </head>
   <body>
     Hello World 2
-    <script>
-      let params = new URLSearchParams(window.location.search);
-      let id = params.get('id');
-      let iframe = document.querySelector('#item-iframe');
-      iframe.setAttribute("src", "https://ffxiv.consolegameswiki.com/wiki/" + id);
-    </script>
     <iframe id="item-iframe" style="width: 100%; height: 100%">
     </iframe>
   </body>
+  <script>
+    let params = new URLSearchParams(window.location.search);
+    let id = params.get('id');
+    let iframe = document.querySelector('#item-iframe');
+    iframe.setAttribute("src", "https://ffxiv.consolegameswiki.com/wiki/" + id);
+  </script>
 </html>
