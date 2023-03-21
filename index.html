@@ -32,7 +32,7 @@
       let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
       let itemsList = document.querySelector("#items");
       let imgBG = document.querySelector("#imgBG");
-      imgBG.width = (window.innerWidth
+      imgBG.style.width = (window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth) - 36;
       let leftFactor = width / data.size[0];
