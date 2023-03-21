@@ -11,16 +11,20 @@
     let params = new URLSearchParams(window.location.search);
     let id = params.get('id');
     let base64 = params.get('base64');
-    let items = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
+    let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
     let itemsList = document.querySelector("#items");
-    function CreateItem(itemName) {
+    function CreateItem(itemData) {
         let elem = document.createElement('a');
         elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemName;
-        elem.innerText = itemName;
+        elem.innerText = itemData[0];
         elem.target = '_blank';
+        elem.style.left = itemData[1];
+        elem.style.top = itemData[2];
+        elem.style.width = itemData[3];
+        elem.style.height = itemData[4];
         itemsList.appendChild(elem);
     }
-    items.forEach(function(item_dye) {
+    data.items.forEach(function(item_dye) {
       if (item_dye[0].length > 0) CreateItem(item_dye[0]);
       if (item_dye[1].length > 0) CreateItem(item_dye[1]);
     });
