@@ -34,8 +34,8 @@
       try {
         let params = new URLSearchParams(window.location.search);
         let base64 = params.get('fashion');
-        if (typeof base64 === Null) {
-          itemsList.innerText = '<div class="error">Enter Fashion</div>';
+        if (typeof base64 === null) {
+          itemsList.innerHTML = '<div class="error">Enter Fashion</div>';
           return;
         }
         let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
@@ -61,7 +61,7 @@
         });
         
       } catch (error) {
-        itemsList.innerText = '<div class="error">' + error + '</div>';
+        itemsList.innerHTML = '<div class="error">' + error + '</div>';
       }
     });
   </script>
