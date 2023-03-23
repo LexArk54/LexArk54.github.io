@@ -34,29 +34,32 @@
       try {
         let params = new URLSearchParams(window.location.search);
         let base64 = params.get('fashion');
-        if (typeof base64 !== 'undefined') {
-          let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
-          let imgBG = document.querySelector("#imgBG");
-          imgBG.src = data.img;
-          imgBG.width = (window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth) - 36;
-          let leftFactor = imgBG.width / data.size[0];
-          function CreateItem(itemData) {
-              let elem = document.createElement('a');
-              elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
-              elem.target = '_blank';
-              elem.style.left = Math.round(itemData[1] * leftFactor);
-              elem.style.top = Math.round(itemData[2] * leftFactor);
-              elem.style.width = Math.round(itemData[3] * leftFactor);
-              elem.style.height = Math.round(itemData[4] * leftFactor);
-              itemsList.appendChild(elem);
-          }
-          data.items.forEach(function(item_dye) {
-            if (item_dye[0].length > 0) CreateItem(item_dye[0]);
-            if (item_dye[1].length > 0) CreateItem(item_dye[1]);
-          });
-        } 
+        if (typeof base64 === '') {
+          itemsList.innerText = '<div class="error">Enter Fashion</div>';
+          return;
+        }
+        let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
+        let imgBG = document.querySelector("#imgBG");
+        imgBG.src = data.img;
+        imgBG.width = (window.innerWidth
+          || document.documentElement.clientWidth
+          || document.body.clientWidth) - 36;
+        let leftFactor = imgBG.width / data.size[0];
+        function CreateItem(itemData) {
+            let elem = document.createElement('a');
+            elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
+            elem.target = '_blank';
+            elem.style.left = Math.round(itemData[1] * leftFactor);
+            elem.style.top = Math.round(itemData[2] * leftFactor);
+            elem.style.width = Math.round(itemData[3] * leftFactor);
+            elem.style.height = Math.round(itemData[4] * leftFactor);
+            itemsList.appendChild(elem);
+        }
+        data.items.forEach(function(item_dye) {
+          if (item_dye[0].length > 0) CreateItem(item_dye[0]);
+          if (item_dye[1].length > 0) CreateItem(item_dye[1]);
+        });
+        
       } catch (error) {
         itemsList.innerText = '<div class="error">' + error + '</div>';
       }
