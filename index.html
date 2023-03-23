@@ -21,7 +21,7 @@
     </style>
   </head>
   <body>
-    <img id="imgBG" src="https://cdn.discordapp.com/attachments/902970350298615868/1086414654361837598/FR268.png"/>
+    <img id="imgBG"/>
     <div id="items"></div>
   </body>
   <script>
@@ -32,6 +32,7 @@
       let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
       let itemsList = document.querySelector("#items");
       let imgBG = document.querySelector("#imgBG");
+      imgBG.src = data.img;
       imgBG.width = (window.innerWidth
         || document.documentElement.clientWidth
         || document.body.clientWidth) - 36;
