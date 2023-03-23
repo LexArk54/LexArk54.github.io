@@ -18,6 +18,10 @@
       div#items > a:hover {
         background: rgba(255, 255, 255, .3);
       }
+      div.error {
+        font-size: 24pt;
+        color: #b23636;
+      }
     </style>
   </head>
   <body>
@@ -54,7 +58,7 @@
           });
         } 
       } catch (error) {
-        itemsList.innerText = error;
+        itemsList.innerText = '<div class="error">' + error + '</div>';
       }
     });
   </script>
