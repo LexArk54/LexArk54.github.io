@@ -40,7 +40,7 @@
         }
         let data = JSON.parse(decodeURIComponent(escape(window.atob(base64))));
         let imgBG = document.querySelector("#imgBG");
-        imgBG.src = data.img;
+        imgBG.src = params.get('bg');
         imgBG.width = (window.innerWidth
           || document.documentElement.clientWidth
           || document.body.clientWidth) - 36;
