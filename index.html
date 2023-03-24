@@ -44,7 +44,7 @@
         imgBG.width = (window.innerWidth
           || document.documentElement.clientWidth
           || document.body.clientWidth) - 36;
-        let leftFactor = imgBG.width / data.size[0];
+        let leftFactor = imgBG.width / data.scale;
         function CreateItem(itemData) {
             let elem = document.createElement('a');
             elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
