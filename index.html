@@ -50,6 +50,7 @@
         let leftFactor = imgBG.width / data.scale;
         function CreateItem(itemData) {
             let elem = document.createElement('a');
+            elem.title = itemData[0];
             elem.href = 'https://ffxiv.consolegameswiki.com/wiki/' + itemData[0];
             elem.target = '_blank';
             elem.style.left = Math.round(itemData[1] * leftFactor);
