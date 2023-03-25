@@ -39,7 +39,11 @@
         let binData = pako.inflate(new Uint8Array(charData));
         let data = JSON.parse(String.fromCharCode.apply(null, new Uint16Array(binData)));
         let imgBG = document.querySelector("#imgBG");
-        imgBG.src = data.img;
+        if (data.img == "") {
+          imgBG.src = "img/empty.png";
+        } else {
+          imgBG.src = data.img;
+        }
         imgBG.width = (window.innerWidth
           || document.documentElement.clientWidth
           || document.body.clientWidth) - 36;
